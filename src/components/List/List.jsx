@@ -4,22 +4,11 @@ import useStyles from './styles';
 import {useState} from 'react';
 import { SettingsSystemDaydreamSharp } from '@material-ui/icons';
 import PlaceDetails from '../PlaceDetails/PlaceDetails'
-const List = () => {
+const List = ({places}) => {
   const classes = useStyles();
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
-
-  const places = [
-    { name: 'Cool Place'},
-    { name: 'Best Beer'},
-    { name: 'Best Steak'},
-    { name: 'Cool Place'},
-    { name: 'Best Beer'},
-    { name: 'Best Steak'},
-    { name: 'Cool Place'},
-    { name: 'Best Beer'},
-    { name: 'Best Steak'},
-  ];
+  console.log(places);
   return (
     <div className={classes.container}>
       <Typography variant='h4'>Restorants, Hotels & Attractions around you</Typography>
