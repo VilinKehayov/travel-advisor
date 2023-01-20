@@ -22,7 +22,7 @@ const Map = ({setCoordinates, setBounds, coordinates}) => {
           setBounds({ne: e.marginBounds.ne, sw: e.marginBounds.sw})
           setCoordinates({lat: e.center.lat, lng: e.center.lng});
         }}
-        onChildClick={''}
+        onChildClick={() => {}}
       >
 
       </GoogleMapReact>
