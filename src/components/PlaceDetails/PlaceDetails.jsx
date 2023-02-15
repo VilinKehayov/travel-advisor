@@ -32,7 +32,7 @@ const PlaceDetails = ({place}) => {
                         </Box>
                     ))}
                 </Box>
-                {place?.cuisine?.map((name)=> (
+                {place?.cuisine?.map(({name})=> (
                     <Chip key={name} size="small" label={name} className = {classes.chip}/>
                 ))}
                 {place?.address && (
