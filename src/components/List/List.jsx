@@ -8,7 +8,7 @@ const List = ({places}) => {
   const classes = useStyles();
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
-  console.log(places);
+  // console.log(places);
   return (
     <div className={classes.container}>
       <Typography variant='h4'>Restorants, Hotels & Attractions around you</Typography>
