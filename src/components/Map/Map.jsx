@@ -5,13 +5,11 @@ import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 import Rating from "@material-ui/lab/Rating";
 import useStyles from "./styles";
 
-const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
+const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }) => {
   const classes = useStyles();
   const isDesktop = useMediaQuery("(min-width:600px)");
-  {
-    /*const [childClicked, setChildClicked] = useState(null) */
-  }
-  console.log(places);
+  
+
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
@@ -25,7 +23,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
           setCoordinates({ lat: e.center.lat, lng: e.center.lng });
         }}
-        onChildClick={(child) => {}}
+        onChildClick={(child) => setChildClicked(child)}
       >
         {places?.map((place, i) => (
           <div
@@ -34,8 +32,6 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
             lng={Number(place.longitude)}
             key={i}
           >
-            {console.log(place.latitude, place.longitude, place)}
-
             {!isDesktop ? (
               <LocationOnOutlinedIcon color="primary" fontSize="large" />
             ) : (
