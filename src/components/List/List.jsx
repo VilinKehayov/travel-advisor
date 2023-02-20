@@ -10,19 +10,21 @@ import {
 } from "@material-ui/core";
 import useStyles from "./styles";
 import { useState, useEffect, createRef } from "react";
-import { SettingsSystemDaydreamSharp } from "@material-ui/icons";
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 const List = ({ places, childClicked, isLoading, type, setType, rating, setRating }) => {
   const classes = useStyles();
   const [elRefs, setElRefs] = useState([]);
 
+  
+
   useEffect(() => {
+    if (elRefs.length === places?.length) return;
+
     const refs = Array(places?.length)
       .fill()
       .map((_, i) => elRefs[i] || createRef());
     setElRefs(refs);
   }, [places, elRefs]);
-
   return (
     <div className={classes.container}>
       <Typography variant="h4">
